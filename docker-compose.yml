@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: spring-boot-app
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    volumes:
+      - maven-repo:/root/.m2
+      - app-logs:/app/logs
+
+volumes:
+  maven-repo:
+  app-logs:
